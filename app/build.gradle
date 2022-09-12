@@ -31,16 +31,16 @@ android {
     }
     namespace 'ch.protonmail.android.protonmailtest'
 }
-
+//todo: Fixing gradle mess, move dependencies into separate Dependencies.kt and Version.kt files
 dependencies {
     implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
     implementation files('../libs/crypto.aar')
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.6.0-alpha05'
-    implementation 'androidx.constraintlayout:constraintlayout:2.2.0-alpha02'
+    implementation 'androidx.appcompat:appcompat:1.6.0-beta01'
+    implementation 'androidx.constraintlayout:constraintlayout:2.2.0-alpha03'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3'
-    implementation "androidx.fragment:fragment-ktx:1.4.1"
+    implementation "androidx.fragment:fragment-ktx:1.5.2"
 
     kapt "com.google.dagger:hilt-compiler:2.42"
     implementation "com.google.dagger:hilt-android:2.42"
