@@ -19,7 +19,7 @@ class AllTasksFragment : Fragment() {
     private val binding by lazy { FragmentAllTasksBinding.inflate(layoutInflater) }
     private val viewModel: MainViewModel by activityViewModels()
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val layoutManager = LinearLayoutManager(context)
         val adapter = TasksAdapter()
         val recycler = binding.recyclerView
@@ -31,5 +31,4 @@ class AllTasksFragment : Fragment() {
 
         return binding.root
     }
-
 }

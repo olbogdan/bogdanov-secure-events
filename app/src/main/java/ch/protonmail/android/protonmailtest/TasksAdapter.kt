@@ -2,7 +2,6 @@ package ch.protonmail.android.protonmailtest
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import ch.protonmail.android.protonmailtest.databinding.ItemTaskBinding
 

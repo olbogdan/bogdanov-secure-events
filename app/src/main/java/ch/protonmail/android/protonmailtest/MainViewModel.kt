@@ -12,7 +12,6 @@ import kotlinx.serialization.json.Json
 import java.net.HttpURLConnection
 import java.net.URL
 
-@Suppress("DEPRECATION")
 class MainViewModel : ViewModel() {
 
     val tasks = MutableLiveData<List<Task>>()
@@ -35,7 +34,7 @@ class MainViewModel : ViewModel() {
             httpURLConnection.inputStream
             val responseCode: Int = httpURLConnection.responseCode
 
-            var response: String = ""
+            var response = ""
             if (responseCode == 200) {
                 response = httpURLConnection.inputStream.bufferedReader().use { it.readText() }
             }

@@ -13,7 +13,7 @@ class TabsAdapter(val context: Context, fragmentManager: FragmentManager) : Frag
         return UpcomingFragment()
     }
 
-    override fun getPageTitle(position: Int): CharSequence? {
+    override fun getPageTitle(position: Int): CharSequence {
         return if (position == 0) "All" else "Upcoming"
     }
 
