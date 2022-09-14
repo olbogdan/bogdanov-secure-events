@@ -3,8 +3,8 @@ plugins {
     id("org.jetbrains.kotlin.plugin.serialization")
     id("dagger.hilt.android.plugin")
     id("androidx.navigation.safeargs")
+    id("kotlin-parcelize")
     kotlin("android")
-    kotlin("android.extensions")
     kotlin("kapt")
 }
 
@@ -40,7 +40,9 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:2.5.2")
 
     // Networking
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.3.3")
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.10.0")
 
     // DI
     kapt("com.google.dagger:hilt-android-compiler:2.42")

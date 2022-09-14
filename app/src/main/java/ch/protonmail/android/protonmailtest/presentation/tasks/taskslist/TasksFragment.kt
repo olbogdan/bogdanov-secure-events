@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -49,7 +48,6 @@ class TasksFragment : Fragment() {
         }
 
         viewModel.tasks.observe(viewLifecycleOwner) { taskAdapter.submitList(it) }
-        viewModel.fetchTasks(requireActivity() as AppCompatActivity) //todo: remove and use Repository pattern with coroutines in VM
     }
 
     //todo: handle navigation via ViewModel

@@ -1,22 +1,21 @@
 package ch.protonmail.android.protonmailtest.data
 
 import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
-import kotlinx.serialization.SerialName
+import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
-@kotlinx.serialization.Serializable
 @Parcelize
 data class Task(
-    @SerialName("creation_date")
+    @SerializedName("creation_date")
     val creationDate: String,
-    @SerialName("due_date")
+    @SerializedName("due_date")
     val dueDate: String,
-    @SerialName("encrypted_description")
+    @SerializedName("encrypted_description")
     val encryptedDescription: String,
-    @SerialName("encrypted_title")
+    @SerializedName("encrypted_title")
     val encryptedTitle: String,
-    @SerialName("id")
+    @SerializedName("id")
     val id: String,
-    @SerialName("image")
+    @SerializedName("image")
     val image: String
 ) : Parcelable
