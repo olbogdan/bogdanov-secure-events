@@ -1,4 +1,4 @@
-package ch.protonmail.android.protonmailtest
+package ch.protonmail.android.protonmailtest.data
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

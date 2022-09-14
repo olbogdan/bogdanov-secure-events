@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="text_line_height_regular">20sp</dimen>
+    <dimen name="text_line_height_title">24sp</dimen>
+
+    <!-- material design metrics -->
+    <dimen name="material_design_margin_8">8dp</dimen>
+    <dimen name="material_design_margin_12">12dp</dimen>
+    <dimen name="material_design_margin_16">16dp</dimen>
+    <dimen name="material_design_margin_24">24dp</dimen>
+    <dimen name="material_design_margin_32">32dp</dimen>
+    <dimen name="material_design_margin_48">48dp</dimen>
+    <dimen name="home_tab_bar">48dp</dimen>
+</resources>

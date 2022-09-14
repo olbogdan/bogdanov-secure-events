@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/proton_black</color>
+    <color name="colorPrimaryDark">@color/proton_black</color>
+    <color name="colorAccent">@color/proton_grey_light</color>
+    <color name="text_color_primary">@color/proton_white</color>
+</resources>

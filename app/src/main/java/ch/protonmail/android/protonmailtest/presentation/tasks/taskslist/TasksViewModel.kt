@@ -1,18 +1,16 @@
-package ch.protonmail.android.protonmailtest
+package ch.protonmail.android.protonmailtest.presentation.tasks.taskslist
 
 import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleObserver
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.OnLifecycleEvent
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
+import ch.protonmail.android.protonmailtest.data.Task
+import ch.protonmail.android.protonmailtest.presentation.tasks.TaskFilter
 import kotlinx.serialization.builtins.ListSerializer
 import kotlinx.serialization.json.Json
 import java.net.HttpURLConnection
 import java.net.URL
 
-class MainViewModel : ViewModel() {
+class TasksViewModel(val taskFilter: TaskFilter) : ViewModel() {
 
     val tasks = MutableLiveData<List<Task>>()
 
@@ -26,9 +24,14 @@ class MainViewModel : ViewModel() {
         })
     }
 
+    fun itemSelected(task: Task) {
+        //todo: navigate to details
+    }
+
     class FetchDataFromServerTask : AsyncTask<String, String, List<Task>>() {
         override fun doInBackground(vararg p0: String?): List<Task> {
-            val url = URL("https://proton-android-testcloud.europe-west1.firebasedatabase.app/tasks.json")
+            val url =
+                URL("https://proton-android-testcloud.europe-west1.firebasedatabase.app/tasks.json")
             val httpURLConnection = url.openConnection() as HttpURLConnection
             httpURLConnection.connect()
             httpURLConnection.inputStream
@@ -39,6 +42,18 @@ class MainViewModel : ViewModel() {
                 response = httpURLConnection.inputStream.bufferedReader().use { it.readText() }
             }
             return Json.decodeFromString(ListSerializer(Task.serializer()), response)
+        }
+    }
+
+    class TasksViewModelFactory(private val taskFilter: TaskFilter) : ViewModelProvider.Factory {
+
+        @Suppress("UNCHECKED_CAST")
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
+            if (modelClass.isAssignableFrom(TasksViewModel::class.java)) {
+                return TasksViewModel(taskFilter) as T
+            }
+
+            throw IllegalArgumentException("Unknown ViewModel class")
         }
     }
 }
