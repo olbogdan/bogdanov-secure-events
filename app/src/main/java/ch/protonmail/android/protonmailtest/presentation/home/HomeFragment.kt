@@ -12,7 +12,6 @@ import ch.protonmail.android.protonmailtest.presentation.tasks.TaskFilter
 import ch.protonmail.android.protonmailtest.presentation.tasks.TasksPagerAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 
-
 class HomeFragment : Fragment() {
 
     companion object {
@@ -35,6 +34,7 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.toolbarContainer.title.text = getString(R.string.app_name)
         setupViewPager()
+
     }
 
     private fun setupViewPager() {

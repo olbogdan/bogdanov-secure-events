@@ -1,9 +1,11 @@
 package ch.protonmail.android.protonmailtest.data
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 import kotlinx.serialization.SerialName
-import kotlinx.serialization.Serializable
 
-@Serializable
+@kotlinx.serialization.Serializable
+@Parcelize
 data class Task(
     @SerialName("creation_date")
     val creationDate: String,
@@ -17,4 +19,4 @@ data class Task(
     val id: String,
     @SerialName("image")
     val image: String
-)
+) : Parcelable

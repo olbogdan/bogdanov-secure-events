@@ -4,20 +4,21 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.navGraphViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import ch.protonmail.android.protonmailtest.R
+import ch.protonmail.android.protonmailtest.data.Task
 import ch.protonmail.android.protonmailtest.databinding.FragmentTasksListBinding
+import ch.protonmail.android.protonmailtest.presentation.home.HomeFragmentDirections
 import ch.protonmail.android.protonmailtest.presentation.tasks.TaskFilter
 
 class TasksFragment : Fragment() {
-
     companion object {
         private const val BUNDLE_FILTER = "filter"
-
         fun newInstance(filter: TaskFilter) =
             TasksFragment().apply {
                 arguments = bundleOf(BUNDLE_FILTER to filter.value)
@@ -26,7 +27,7 @@ class TasksFragment : Fragment() {
 
     private var _binding: FragmentTasksListBinding? = null
     private val binding get() = _binding!!
-    private val viewModel: TasksViewModel by viewModels {
+    private val viewModel: TasksViewModel by navGraphViewModels(R.id.tasks_nav_graph) {
         TasksViewModel.TasksViewModelFactory(getTaskFilter())
     }
 
@@ -41,26 +42,31 @@ class TasksFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val taskAdapter = TasksAdapter { viewModel.itemSelected(it) }
+        val taskAdapter = TasksAdapter { openTaskDetails(it) }
         binding.tasksListRecyclerView.apply {
             adapter = taskAdapter
             layoutManager = LinearLayoutManager(context)
         }
 
-        viewModel.tasks.observe(viewLifecycleOwner) {
-            taskAdapter.submitList(it)
-        }
+        viewModel.tasks.observe(viewLifecycleOwner) { taskAdapter.submitList(it) }
         viewModel.fetchTasks(requireActivity() as AppCompatActivity) //todo: remove and use Repository pattern with coroutines in VM
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    //todo: handle navigation via ViewModel
+    private fun openTaskDetails(task: Task) {
+        HomeFragmentDirections.actionHomeFragmentToTaskDetailsFragment(task).let {
+            findNavController().navigate(it)
+        }
     }
 
     private fun getTaskFilter(): TaskFilter {
         val filterId = requireArguments().getInt(BUNDLE_FILTER)
         return TaskFilter.getByValue(filterId)
             ?: throw IllegalArgumentException("Invalid filter id $filterId")
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
