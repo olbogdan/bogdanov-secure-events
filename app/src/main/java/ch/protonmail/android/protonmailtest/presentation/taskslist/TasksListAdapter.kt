@@ -1,4 +1,4 @@
-package ch.protonmail.android.protonmailtest.presentation.tasks.taskslist
+package ch.protonmail.android.protonmailtest.presentation.taskslist
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,7 +9,9 @@ import ch.protonmail.android.crypto.CryptoLib
 import ch.protonmail.android.protonmailtest.data.Task
 import ch.protonmail.android.protonmailtest.databinding.ItemTaskBinding
 
-class TasksAdapter(private val clickListener: (Task) -> Unit) : ListAdapter<Task, TasksAdapter.ViewHolder>(ListAdapterCallBack()) {
+class TasksAdapter(private val clickListener: (Task) -> Unit) : ListAdapter<Task, TasksAdapter.ViewHolder>(
+    ListAdapterCallBack()
+) {
     private val cr = CryptoLib()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
         ViewHolder(ItemTaskBinding.inflate(LayoutInflater.from(parent.context), parent, false))
@@ -18,8 +20,8 @@ class TasksAdapter(private val clickListener: (Task) -> Unit) : ListAdapter<Task
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = getItem(position)
         with(holder.binding) {
-            itemTaskTextTitle.text = cr.decrypt(item.encryptedTitle).getOrNull()
-            itemTaskTextDescription.text = cr.decrypt(item.encryptedDescription).getOrNull()
+//            itemTaskTextTitle.text = cr.decrypt(item.encryptedTitle).getOrNull()
+//            itemTaskTextDescription.text = cr.decrypt(item.encryptedDescription).getOrNull()
             itemTaskDetailsContainer.taskDetailsTextCreationDate.text = item.creationDate
             itemTaskDetailsContainer.taskDetailsTextDueDate.text = item.dueDate
         }

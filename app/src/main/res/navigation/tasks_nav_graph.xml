@@ -7,15 +7,19 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="ch.protonmail.android.protonmailtest.presentation.home.HomeFragment"
-        android:label="HomeFragment" >
+        android:label="HomeFragment">
         <action
             android:id="@+id/action_homeFragment_to_taskDetailsFragment"
-            app:destination="@id/taskDetailsFragment" />
+            app:destination="@id/taskDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
     <fragment
         android:id="@+id/taskDetailsFragment"
         android:name="ch.protonmail.android.protonmailtest.presentation.taskdetails.TaskDetailsFragment"
-        android:label="TaskDetailsFragment" >
+        android:label="TaskDetailsFragment">
         <argument
             android:name="task"
             app:argType="ch.protonmail.android.protonmailtest.data.Task" />

@@ -1,4 +1,4 @@
-package ch.protonmail.android.protonmailtest.presentation.tasks
+package ch.protonmail.android.protonmailtest.presentation
 
 enum class TaskFilter(val value: Int) {
     ALL_TASKS(0),

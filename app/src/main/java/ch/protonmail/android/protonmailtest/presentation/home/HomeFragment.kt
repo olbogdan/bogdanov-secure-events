@@ -8,8 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import ch.protonmail.android.protonmailtest.R
 import ch.protonmail.android.protonmailtest.databinding.FragmentHomeBinding
-import ch.protonmail.android.protonmailtest.presentation.tasks.TaskFilter
-import ch.protonmail.android.protonmailtest.presentation.tasks.TasksPagerAdapter
+import ch.protonmail.android.protonmailtest.presentation.TaskFilter
 import com.google.android.material.tabs.TabLayoutMediator
 
 class HomeFragment : Fragment() {
@@ -32,7 +31,8 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.toolbarContainer.title.text = getString(R.string.app_name)
+        binding.toolbarContainer.toolbar.title = getString(R.string.app_name)
+        binding.toolbarContainer.toolbar.navigationIcon = null
         setupViewPager()
 
     }
