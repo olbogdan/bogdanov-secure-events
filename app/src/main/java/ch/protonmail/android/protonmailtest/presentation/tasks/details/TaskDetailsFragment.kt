@@ -1,4 +1,4 @@
-package ch.protonmail.android.protonmailtest.presentation.taskdetails
+package ch.protonmail.android.protonmailtest.presentation.tasks.details
 
 import android.os.Bundle
 import android.util.Log
@@ -8,15 +8,16 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
+import ch.protonmail.android.protonmailtest.R
 import ch.protonmail.android.protonmailtest.databinding.FragmentTaskDetailsBinding
-import ch.protonmail.android.protonmailtest.presentation.home.MainActivity
+import ch.protonmail.android.protonmailtest.presentation.extensions.toReadable
 
 
 class TaskDetailsFragment : Fragment() {
 
     private val args: TaskDetailsFragmentArgs by navArgs()
     private var _binding: FragmentTaskDetailsBinding? = null
-    private val binding get() = _binding!!
+    private val binding get() = _binding ?: throw IllegalStateException("invalid binding state")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,16 +34,17 @@ class TaskDetailsFragment : Fragment() {
             Log.d("DetailActivity", "Downloading the image...")
         }
         val task = args.task
-        binding.taskDetailsTextTitle.text = task.encryptedTitle
-        binding.toolbarContainer.toolbar.title = task.encryptedTitle
-        binding.taskDetailsTextSubtitle.text = task.encryptedDescription
-        binding.taskDetailsContainer.taskDetailsTextCreationDate.text = task.creationDate
-        binding.taskDetailsContainer.taskDetailsTextDueDate.text = task.dueDate
+        binding.taskDetailsTextTitle.text = task.title
+        binding.taskDetailsTextSubtitle.text = task.description
+        binding.taskDetailsContainer.taskDetailsTextCreationDate.text =
+            task.creationDate.toReadable()
+        binding.taskDetailsContainer.taskDetailsTextDueDate.text = task.dueDate.toReadable()
+
+        binding.toolbarContainer.toolbar.title =
+            getString(R.string.task_details_toolbar_title, task.id)
         binding.toolbarContainer.toolbar.setNavigationOnClickListener {
             view.findNavController().navigateUp()
         }
-//        (requireActivity() as MainActivity).setSupportActionBar(binding.toolbarContainer.toolbar)
-//        (requireActivity() as MainActivity).supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     override fun onDestroyView() {

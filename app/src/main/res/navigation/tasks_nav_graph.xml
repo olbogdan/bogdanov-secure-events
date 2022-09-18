@@ -18,10 +18,10 @@
     </fragment>
     <fragment
         android:id="@+id/taskDetailsFragment"
-        android:name="ch.protonmail.android.protonmailtest.presentation.taskdetails.TaskDetailsFragment"
+        android:name="ch.protonmail.android.protonmailtest.presentation.tasks.details.TaskDetailsFragment"
         android:label="TaskDetailsFragment">
         <argument
             android:name="task"
-            app:argType="ch.protonmail.android.protonmailtest.data.Task" />
+            app:argType="ch.protonmail.android.protonmailtest.presentation.tasks.TaskUIEntity" />
     </fragment>
 </navigation>

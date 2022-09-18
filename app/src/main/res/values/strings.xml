@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">Proton Test</string>
-    <string name="task_details_download_button">Download image</string>
-    <string name="tab_all_tasks_title">All tasks (%d)</string>
-    <string name="tab_upcoming_tasks_title">Upcoming tasks (%d)</string>
+    <string name="home_tab_all_tasks_title">All tasks (%d)</string>
+    <string name="home_tab_upcoming_tasks_title">Upcoming tasks (%d)</string>
     <string name="item_task_created">Created:</string>
     <string name="item_task_due">Due:</string>
+    <string name="task_details_toolbar_title">Task %s</string>
+    <string name="task_details_download_button">Download image</string>
 </resources>

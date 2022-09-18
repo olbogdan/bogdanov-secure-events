@@ -8,7 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import ch.protonmail.android.protonmailtest.R
 import ch.protonmail.android.protonmailtest.databinding.FragmentHomeBinding
-import ch.protonmail.android.protonmailtest.presentation.TaskFilter
+import ch.protonmail.android.protonmailtest.presentation.tasks.TaskFilter
+import ch.protonmail.android.protonmailtest.presentation.tasks.TasksPagerAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 
 class HomeFragment : Fragment() {
@@ -18,7 +19,7 @@ class HomeFragment : Fragment() {
     }
 
     private var _binding: FragmentHomeBinding? = null
-    private val binding get() = _binding!!
+    private val binding get() = _binding ?: throw IllegalStateException("invalid binding state")
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -54,8 +55,8 @@ class HomeFragment : Fragment() {
         // todo: update tasks count according to list size
         TabLayoutMediator(binding.homeTabLayout, binding.homeViewPager) { tab, position ->
             tab.text = when (position) {
-                TaskFilter.ALL_TASKS.value -> getString(R.string.tab_all_tasks_title, 12)
-                TaskFilter.UPCOMING_TASKS.value -> getString(R.string.tab_upcoming_tasks_title, 5)
+                TaskFilter.ALL_TASKS.value -> getString(R.string.home_tab_all_tasks_title, 12)
+                TaskFilter.UPCOMING_TASKS.value -> getString(R.string.home_tab_upcoming_tasks_title, 5)
                 else -> throw IllegalStateException("Invalid TabLayoutMediator position $position")
             }
         }.attach()

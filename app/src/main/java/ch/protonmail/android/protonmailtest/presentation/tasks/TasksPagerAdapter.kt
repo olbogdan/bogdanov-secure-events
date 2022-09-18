@@ -1,9 +1,8 @@
-package ch.protonmail.android.protonmailtest.presentation.home
+package ch.protonmail.android.protonmailtest.presentation.tasks
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import ch.protonmail.android.protonmailtest.presentation.TaskFilter
-import ch.protonmail.android.protonmailtest.presentation.taskslist.TasksListFragment
+import ch.protonmail.android.protonmailtest.presentation.tasks.list.TasksListFragment
 
 class TasksPagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
 
@@ -17,3 +16,4 @@ class TasksPagerAdapter(fragment: Fragment) : FragmentStateAdapter(fragment) {
         }
     }
 }
+

@@ -1,7 +1,8 @@
 package ch.protonmail.android.protonmailtest.data.remote
 
-sealed class NetworkResult<T : Any> {
-    class Success<T: Any>(val data: T) : NetworkResult<T>()
-    class Error<T: Any>(val code: Int, val message: String?) : NetworkResult<T>()
-    class Exception<T: Any>(val e: Throwable) : NetworkResult<T>()
+//todo: change to data classes like in UIState
+sealed class NetworkResult<out T> {
+    data class Success<T : Any>(val data: T) : NetworkResult<T>()
+    data class Error<T : Any>(val code: Int, val message: String?) : NetworkResult<T>()
+    data class Exception<T : Any>(val e: Throwable) : NetworkResult<T>()
 }

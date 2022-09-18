@@ -1,8 +1,9 @@
 package ch.protonmail.android.protonmailtest.di
 
-import ch.protonmail.android.protonmailtest.data.remote.TasksRemoteRepository
-import ch.protonmail.android.protonmailtest.data.remote.retrofit.NetworkResultCallAdapterFactory
+import ch.protonmail.android.protonmailtest.data.remote.TasksRemoteDataSource
+import ch.protonmail.android.protonmailtest.data.remote.retrofit.resultconverter.NetworkResultCallAdapterFactory
 import ch.protonmail.android.protonmailtest.data.remote.retrofit.TasksApiService
+import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -37,14 +38,23 @@ object ApiModule {
                 TimeUnit.MINUTES
             ) //todo: remove timeouts, added because my connection unstable
             .connectTimeout(20, TimeUnit.SECONDS)
-            .readTimeout(30, TimeUnit.SECONDS)
+            .readTimeout(20, TimeUnit.SECONDS)
             .addInterceptor(httpLoggingInterceptor)
             .build()
 
     @Singleton
     @Provides
-    fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
-        .addConverterFactory(GsonConverterFactory.create())
+    fun provideGsonConverterFactory(): GsonConverterFactory =
+        GsonConverterFactory.create(
+            GsonBuilder()
+                .setDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS")
+                .create()
+        )
+
+    @Singleton
+    @Provides
+    fun provideRetrofit(okHttpClient: OkHttpClient, converterFactory: GsonConverterFactory): Retrofit = Retrofit.Builder()
+        .addConverterFactory(converterFactory)
         .addCallAdapterFactory(NetworkResultCallAdapterFactory.create())
         .baseUrl(BASE_URL)
         .client(okHttpClient)
@@ -57,13 +67,13 @@ object ApiModule {
 
     @Singleton
     @Provides
-    fun providesTasksRemoteRepository(apiService: TasksApiService) =
-        TasksRemoteRepository(apiService)
+    fun providesTasksRemoteDataSource(apiService: TasksApiService) =
+        TasksRemoteDataSource(apiService)
 }
 
 
 // Workaround of CertPathValidatorException Emulator API 23
-// Unsafe clint have to be used for Emulator API 23 & API 24
+// To test the app on Emulator API 23 & API 24 use this unsafe clint
 
 //private fun getUnsafeOkHttpClient(): OkHttpClient? {
 //    return try {

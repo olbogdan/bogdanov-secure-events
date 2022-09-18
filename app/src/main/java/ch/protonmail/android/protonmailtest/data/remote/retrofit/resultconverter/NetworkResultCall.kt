@@ -1,4 +1,4 @@
-package ch.protonmail.android.protonmailtest.data.remote.retrofit
+package ch.protonmail.android.protonmailtest.data.remote.retrofit.resultconverter
 
 import ch.protonmail.android.protonmailtest.data.remote.NetworkResult
 import okhttp3.Request
@@ -8,9 +8,13 @@ import retrofit2.Callback
 import retrofit2.HttpException
 import retrofit2.Response
 
-class NetworkResultCall<T : Any>(
-    private val proxy: Call<T>
-) : Call<NetworkResult<T>> {
+/**
+ * A NetworkResultCall handles Retrofit exceptions and converts retrofit2.Response to NetworkResult
+ * HttpExceptions are converted to NetworkResult.Error
+ * Throwable exceptions of Retrofit are converted to NetworkResult.Exception
+ */
+class NetworkResultCall<T : Any>(private val proxy: Call<T>) : Call<NetworkResult<T>> {
+
     override fun enqueue(callback: Callback<NetworkResult<T>>) {
         proxy.enqueue(object : Callback<T> {
             override fun onResponse(call: Call<T>, response: Response<T>) {

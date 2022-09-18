@@ -10,6 +10,7 @@ plugins {
 
 android {
     compileSdk = 33
+    namespace = "ch.protonmail.android.protonmailtest"
     defaultConfig {
         applicationId = "ch.protonmail.android.protonmailtest"
         minSdk = 23
@@ -26,27 +27,38 @@ android {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
-    namespace = "ch.protonmail.android.protonmailtest"
 }
 
-//todo: extract dependencies into separate Dependencies.kt and Version.kt files
+//todo: extract dependencies into separate Dependencies.kt and Version.kt files for better structure
 dependencies {
     // Android
     implementation("androidx.fragment:fragment-ktx:1.5.2")
     implementation("com.google.android.material:material:1.6.1")
 
     // Navigation
-    implementation("androidx.navigation:navigation-fragment-ktx:2.5.2")
-    implementation("androidx.navigation:navigation-ui-ktx:2.5.2")
+    val navigationVersion = "2.5.2"
+    implementation("androidx.navigation:navigation-fragment-ktx:$navigationVersion")
+    implementation("androidx.navigation:navigation-ui-ktx:$navigationVersion")
 
     // Networking
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    val retrofitVersion = "2.9.0"
+    implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
+    implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
     implementation("com.squareup.okhttp3:logging-interceptor:4.10.0")
 
+    // Room
+    val roomVersion = "2.4.3"
+    implementation("androidx.room:room-common:$roomVersion")
+    implementation("androidx.room:room-ktx:$roomVersion")
+    kapt("androidx.room:room-compiler:$roomVersion")
+
     // DI
-    kapt("com.google.dagger:hilt-android-compiler:2.42")
-    implementation("com.google.dagger:hilt-android:2.42")
+    val hiltVersion = "2.42"
+    implementation("com.google.dagger:hilt-android:$hiltVersion")
+    kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")
+
+    // KTX
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.5.1")
 
     // Cryptography
     implementation(files("../libs/crypto.aar"))
