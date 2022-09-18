@@ -82,7 +82,7 @@ class TasksListFragment : Fragment() {
         binding.tasksListProgressbar.isVisible = show
     }
 
-    //todo: handle navigation via ViewModel
+    //note: we can handle navigation via ViewModel for nav testability
     private fun openTaskDetails(task: TaskEntity) {
         HomeFragmentDirections.actionHomeFragmentToTaskDetailsFragment(task).let {
             findNavController().navigate(it)
