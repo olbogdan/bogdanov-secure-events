@@ -16,7 +16,7 @@ import ch.protonmail.android.protonmailtest.databinding.FragmentTasksListBinding
 import ch.protonmail.android.protonmailtest.presentation.UIState
 import ch.protonmail.android.protonmailtest.presentation.home.HomeFragmentDirections
 import ch.protonmail.android.protonmailtest.presentation.tasks.TaskFilter
-import ch.protonmail.android.protonmailtest.presentation.tasks.TaskUIEntity
+import ch.protonmail.domain.interactors.TaskEntity
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -33,7 +33,7 @@ class TasksListFragment : Fragment() {
 
     @Inject
     lateinit var assistedFactory: TasksListViewModel.VMFactory
-    private var tasksAdapter: TasksAdapter? = null
+    private var tasksAdapter: TasksListAdapter? = null
     private var _binding: FragmentTasksListBinding? = null
     private val binding get() = _binding ?: throw IllegalStateException("invalid binding state")
     private val viewModel: TasksListViewModel by viewModels {
@@ -52,7 +52,7 @@ class TasksListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val lLayoutManager = LinearLayoutManager(context)
-        tasksAdapter = TasksAdapter { openTaskDetails(it) }
+        tasksAdapter = TasksListAdapter { openTaskDetails(it) }
         binding.tasksListRecyclerView.apply {
             adapter = tasksAdapter
             layoutManager = lLayoutManager
@@ -62,7 +62,7 @@ class TasksListFragment : Fragment() {
         viewModel.uiState.observe(viewLifecycleOwner) { updateUI(it) }
     }
 
-    private fun updateUI(uiState: UIState<List<TaskUIEntity>>) {
+    private fun updateUI(uiState: UIState<List<TaskEntity>>) {
         when(uiState) {
             is UIState.Loading -> {
                 showProgress(true)
@@ -83,7 +83,7 @@ class TasksListFragment : Fragment() {
     }
 
     //todo: handle navigation via ViewModel
-    private fun openTaskDetails(task: TaskUIEntity) {
+    private fun openTaskDetails(task: TaskEntity) {
         HomeFragmentDirections.actionHomeFragmentToTaskDetailsFragment(task).let {
             findNavController().navigate(it)
         }

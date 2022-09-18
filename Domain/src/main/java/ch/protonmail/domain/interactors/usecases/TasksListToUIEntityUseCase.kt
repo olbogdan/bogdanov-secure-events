@@ -1,13 +1,12 @@
-package ch.protonmail.android.protonmailtest.interactors.usecases
+package ch.protonmail.domain.interactors.usecases
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import ch.proton.crypto.Crypto
-import ch.protonmail.data.local.Task
-import ch.protonmail.android.protonmailtest.di.IoDispatcher
-import ch.protonmail.android.protonmailtest.interactors.Resource
-import ch.protonmail.android.protonmailtest.interactors.extensions.mapToUIEntity
-import ch.protonmail.android.protonmailtest.presentation.tasks.TaskUIEntity
+import ch.protonmail.domain.di.IoDispatcher
+import ch.protonmail.domain.interactors.Resource
+import ch.protonmail.domain.interactors.TaskEntity
+import ch.protonmail.domain.interactors.extensions.mapToUIEntity
 import kotlinx.coroutines.CoroutineDispatcher
 import javax.inject.Inject
 
@@ -16,7 +15,7 @@ class TasksListToUIEntityUseCase @Inject constructor(
     private val crypto: Crypto
 ) {
 
-    operator fun invoke(value: Resource<List<ch.protonmail.data.local.Task>>): LiveData<Resource<List<TaskUIEntity>>> =
+    operator fun invoke(value: Resource<List<ch.protonmail.data.local.Task>>): LiveData<Resource<List<TaskEntity>>> =
         liveData(dispatcher) {
             when (value) {
                 is Resource.Success -> {

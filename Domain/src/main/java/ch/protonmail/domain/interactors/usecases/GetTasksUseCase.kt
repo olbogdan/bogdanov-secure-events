@@ -1,10 +1,13 @@
-package ch.protonmail.android.protonmailtest.interactors.usecases
+package ch.protonmail.domain.interactors.usecases
 
-import androidx.lifecycle.*
-import ch.protonmail.android.protonmailtest.di.IoDispatcher
-import ch.protonmail.android.protonmailtest.interactors.Resource
-import ch.protonmail.android.protonmailtest.interactors.TasksRepository
-import ch.protonmail.android.protonmailtest.presentation.tasks.TaskUIEntity
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.distinctUntilChanged
+import androidx.lifecycle.liveData
+import androidx.lifecycle.switchMap
+import ch.protonmail.domain.di.IoDispatcher
+import ch.protonmail.domain.interactors.Resource
+import ch.protonmail.domain.interactors.TaskEntity
+import ch.protonmail.domain.interactors.TasksRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import java.util.*
 import javax.inject.Inject
@@ -16,7 +19,7 @@ class GetTasksUseCase @Inject constructor(
     private val tasksMapper: TasksListToUIEntityUseCase
 ) {
 
-    suspend operator fun invoke(filter: Filter): LiveData<Resource<List<TaskUIEntity>>> {
+    suspend operator fun invoke(filter: Filter): LiveData<Resource<List<TaskEntity>>> {
         return liveData(dispatcher) {
             val resource = when (filter) {
                 is Filter.ALL -> repository.getAllTasks()

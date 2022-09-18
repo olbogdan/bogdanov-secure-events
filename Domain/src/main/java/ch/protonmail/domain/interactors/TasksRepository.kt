@@ -1,15 +1,15 @@
-package ch.protonmail.android.protonmailtest.interactors
+package ch.protonmail.domain.interactors
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.LiveDataScope
 import androidx.lifecycle.liveData
 import androidx.lifecycle.map
-import ch.protonmail.android.protonmailtest.di.IoDispatcher
 import ch.protonmail.data.local.Task
 import ch.protonmail.data.local.TasksLocalDataSource
 import ch.protonmail.data.remote.NetworkResult
 import ch.protonmail.data.remote.TaskDTO
 import ch.protonmail.data.remote.TasksRemoteDataSource
+import ch.protonmail.domain.di.IoDispatcher
 import kotlinx.coroutines.CoroutineDispatcher
 import java.util.*
 import javax.inject.Inject
@@ -78,10 +78,10 @@ class TasksRepository @Inject constructor(
                 saveCallResult(networkResult.data)
             }
             is NetworkResult.Exception -> {
-                emit(Resource.Failure(networkResult.e.toString()))
+                emit(ch.protonmail.domain.interactors.Resource.Failure(networkResult.e.toString()))
             }
             is NetworkResult.Error -> {
-                emit(Resource.Failure("${networkResult.code} ${networkResult.message}"))
+                emit(ch.protonmail.domain.interactors.Resource.Failure("${networkResult.code} ${networkResult.message}"))
             }
         }
     }

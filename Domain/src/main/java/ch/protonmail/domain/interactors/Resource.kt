@@ -1,4 +1,4 @@
-package ch.protonmail.android.protonmailtest.interactors
+package ch.protonmail.domain.interactors
 
 sealed class Resource<out T> {
     object Loading : Resource<Nothing>()

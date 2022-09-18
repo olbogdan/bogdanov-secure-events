@@ -22,6 +22,6 @@
         android:label="TaskDetailsFragment">
         <argument
             android:name="task"
-            app:argType="ch.protonmail.android.protonmailtest.presentation.tasks.TaskUIEntity" />
+            app:argType="ch.protonmail.domain.interactors.TaskEntity" />
     </fragment>
 </navigation>

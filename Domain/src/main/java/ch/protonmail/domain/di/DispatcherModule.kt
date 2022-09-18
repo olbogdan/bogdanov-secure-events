@@ -1,4 +1,4 @@
-package ch.protonmail.android.protonmailtest.di
+package ch.protonmail.domain.di
 
 import dagger.Module
 import dagger.Provides

@@ -1,9 +1,7 @@
 plugins {
     id("com.android.application")
-    id("org.jetbrains.kotlin.plugin.serialization")
     id("dagger.hilt.android.plugin")
     id("androidx.navigation.safeargs")
-    id("kotlin-parcelize")
     kotlin("android")
     kotlin("kapt")
 }
@@ -21,15 +19,9 @@ android {
     buildFeatures {
         viewBinding = true
     }
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-        }
-    }
 }
 
-//todo: extract dependencies into separate Dependencies.kt and Version.kt files for better structure
+//todo: extract dependencies into separate Dependencies.kt and Version.kt files for better structure and reuse between modules
 dependencies {
     // Android
     implementation("androidx.fragment:fragment-ktx:1.5.2")
@@ -48,11 +40,8 @@ dependencies {
     // KTX
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.5.1")
 
-    // Cryptography
-    implementation(project(mapOf("path" to ":ProtonCrypto")))
-
-    // Data
-    implementation(project(mapOf("path" to ":Data")))
+    // Domain
+    implementation(project(mapOf("path" to ":Domain")))
 }
 
 // Allow references to generated code
