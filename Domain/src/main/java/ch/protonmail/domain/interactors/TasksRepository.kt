@@ -46,6 +46,12 @@ class TasksRepository @Inject constructor(
         emitSource(resource)
     }
 
+    suspend fun getTaskImmediate(id: String): Task? = localDataSource.getTaskImmediate(id)
+
+    suspend fun updateTask(task: Task) {
+        localDataSource.updateTask(task)
+    }
+
     /**
      * High order function controls LiveData flow.
      * The databaseQuery of localDataSource is a single source of true.
@@ -78,10 +84,10 @@ class TasksRepository @Inject constructor(
                 saveCallResult(networkResult.data)
             }
             is NetworkResult.Exception -> {
-                emit(ch.protonmail.domain.interactors.Resource.Failure(networkResult.e.toString()))
+                emit(Resource.Failure(networkResult.e.toString()))
             }
             is NetworkResult.Error -> {
-                emit(ch.protonmail.domain.interactors.Resource.Failure("${networkResult.code} ${networkResult.message}"))
+                emit(Resource.Failure("${networkResult.code} ${networkResult.message}"))
             }
         }
     }

@@ -3,6 +3,7 @@ package ch.protonmail.domain.interactors.usecases
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import ch.proton.crypto.Crypto
+import ch.protonmail.data.local.Task
 import ch.protonmail.domain.di.IoDispatcher
 import ch.protonmail.domain.interactors.Resource
 import ch.protonmail.domain.interactors.TaskEntity
@@ -15,7 +16,7 @@ class TaskToUIEntityUseCase @Inject constructor(
     private val crypto: Crypto
 ) {
 
-    operator fun invoke(value: Resource<ch.protonmail.data.local.Task>): LiveData<Resource<TaskEntity>> =
+    operator fun invoke(value: Resource<Task>): LiveData<Resource<TaskEntity>> =
         liveData(dispatcher) {
             when (value) {
                 is Resource.Success -> {

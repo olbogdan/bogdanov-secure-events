@@ -19,7 +19,13 @@ interface TasksDao {
     @Query("SELECT * FROM Task WHERE id == :id")
     fun getTask(id: String): LiveData<Task>
 
+    @Query("SELECT * FROM Task WHERE id == :id")
+    suspend fun getTaskImmediate(id: String): Task?
+
     //todo: implement custom conflict resolving strategy
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertTasks(tasks: List<Task>)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insertTask(tasks: Task)
 }

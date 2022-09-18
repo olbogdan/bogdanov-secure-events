@@ -5,9 +5,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import ch.protonmail.android.protonmailtest.R
 import ch.protonmail.android.protonmailtest.databinding.ItemTaskBinding
 import ch.protonmail.android.protonmailtest.presentation.extensions.toReadable
 import ch.protonmail.domain.interactors.TaskEntity
+import com.squareup.picasso.Picasso
+import java.io.File
 
 class TasksListAdapter(private val clickListener: (TaskEntity) -> Unit) :
     ListAdapter<TaskEntity, TasksListAdapter.ViewHolder>(ListAdapterCallBack()) {
@@ -19,11 +22,23 @@ class TasksListAdapter(private val clickListener: (TaskEntity) -> Unit) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = getItem(position)
         with(holder.binding) {
-            itemTaskTextTitle.text = item.title
+            itemTaskTextTitle.text =
+                holder.itemView.resources.getString(R.string.item_task_title, item.title, item.id)
             itemTaskTextDescription.text = item.description
             itemTaskDetailsContainer.taskDetailsTextCreationDate.text =
                 item.creationDate.toReadable()
             itemTaskDetailsContainer.taskDetailsTextDueDate.text = item.dueDate.toReadable()
+
+            val image = item.image
+            if (image != null) {
+                Picasso.get()
+                    .load(File(image))
+                    .centerCrop()
+                    .fit()
+                    .into(itemTaskImage)
+            } else {
+                itemTaskImage.setImageDrawable(null)
+            }
         }
         holder.binding.root.setOnClickListener { clickListener(item) }
     }

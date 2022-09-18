@@ -42,6 +42,9 @@ dependencies {
 
     // Domain
     implementation(project(mapOf("path" to ":Domain")))
+
+    // UI
+    implementation("com.squareup.picasso:picasso:2.8")
 }
 
 // Allow references to generated code
