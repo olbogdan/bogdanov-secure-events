@@ -1,4 +1,4 @@
-package ch.protonmail.android.protonmailtest.data.local
+package ch.protonmail.data.local
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

@@ -1,6 +1,6 @@
-package ch.protonmail.android.protonmailtest.data.remote.retrofit.resultconverter
+package ch.protonmail.data.remote.retrofit.resultconverter
 
-import ch.protonmail.android.protonmailtest.data.remote.NetworkResult
+import ch.protonmail.data.remote.NetworkResult
 import okhttp3.Request
 import okio.Timeout
 import retrofit2.Call

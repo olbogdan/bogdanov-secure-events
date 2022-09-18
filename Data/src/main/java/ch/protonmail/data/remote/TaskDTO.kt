@@ -1,4 +1,4 @@
-package ch.protonmail.android.protonmailtest.data.remote
+package ch.protonmail.data.remote
 
 import com.google.gson.annotations.SerializedName
 import java.util.Date

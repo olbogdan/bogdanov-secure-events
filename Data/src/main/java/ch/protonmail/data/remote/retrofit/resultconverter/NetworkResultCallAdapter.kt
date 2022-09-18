@@ -1,6 +1,6 @@
-package ch.protonmail.android.protonmailtest.data.remote.retrofit.resultconverter
+package ch.protonmail.data.remote.retrofit.resultconverter
 
-import ch.protonmail.android.protonmailtest.data.remote.NetworkResult
+import ch.protonmail.data.remote.NetworkResult
 import retrofit2.Call
 import retrofit2.CallAdapter
 import java.lang.reflect.Type

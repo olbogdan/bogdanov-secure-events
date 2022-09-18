@@ -34,24 +34,11 @@ dependencies {
     // Android
     implementation("androidx.fragment:fragment-ktx:1.5.2")
     implementation("com.google.android.material:material:1.6.1")
-    implementation(project(mapOf("path" to ":ProtonCrypto")))
 
     // Navigation
     val navigationVersion = "2.5.2"
     implementation("androidx.navigation:navigation-fragment-ktx:$navigationVersion")
     implementation("androidx.navigation:navigation-ui-ktx:$navigationVersion")
-
-    // Networking
-    val retrofitVersion = "2.9.0"
-    implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
-    implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
-    implementation("com.squareup.okhttp3:logging-interceptor:4.10.0")
-
-    // Room
-    val roomVersion = "2.4.3"
-    implementation("androidx.room:room-common:$roomVersion")
-    implementation("androidx.room:room-ktx:$roomVersion")
-    kapt("androidx.room:room-compiler:$roomVersion")
 
     // DI
     val hiltVersion = "2.42"
@@ -62,7 +49,10 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.5.1")
 
     // Cryptography
-//    implementation(files("../libs/crypto.aar"))
+    implementation(project(mapOf("path" to ":ProtonCrypto")))
+
+    // Data
+    implementation(project(mapOf("path" to ":Data")))
 }
 
 // Allow references to generated code

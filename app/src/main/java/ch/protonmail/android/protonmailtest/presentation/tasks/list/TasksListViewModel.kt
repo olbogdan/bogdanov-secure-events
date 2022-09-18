@@ -2,11 +2,11 @@ package ch.protonmail.android.protonmailtest.presentation.tasks.list
 
 import androidx.lifecycle.*
 import ch.protonmail.android.protonmailtest.di.IoDispatcher
-import ch.protonmail.android.protonmailtest.interactors.usecases.GetTasksUseCase
 import ch.protonmail.android.protonmailtest.interactors.Resource
+import ch.protonmail.android.protonmailtest.interactors.usecases.GetTasksUseCase
+import ch.protonmail.android.protonmailtest.presentation.UIState
 import ch.protonmail.android.protonmailtest.presentation.tasks.TaskFilter
 import ch.protonmail.android.protonmailtest.presentation.tasks.TaskUIEntity
-import ch.protonmail.android.protonmailtest.presentation.UIState
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject

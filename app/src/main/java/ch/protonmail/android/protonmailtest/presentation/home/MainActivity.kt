@@ -3,7 +3,6 @@ package ch.protonmail.android.protonmailtest.presentation.home
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.Navigation
-import androidx.navigation.findNavController
 import ch.protonmail.android.protonmailtest.R
 import ch.protonmail.android.protonmailtest.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint

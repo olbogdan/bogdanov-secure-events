@@ -7,3 +7,4 @@ dependencyResolutionManagement {
 
 include("app")
 include(":ProtonCrypto")
+include(":Data")

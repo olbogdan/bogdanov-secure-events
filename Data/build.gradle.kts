@@ -5,12 +5,14 @@ plugins {
 }
 
 android {
-    namespace = "ch.proton.crypto"
+    namespace = "ch.protonmail.data"
     compileSdk = 33
 
     defaultConfig {
         minSdk = 23
         targetSdk = 33
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles("consumer-rules.pro")
     }
 
@@ -32,8 +34,19 @@ android {
     }
 }
 
+//todo: create top level module for centralized dependencies' management
 dependencies {
-    implementation(files("libs/crypto.jar"))
+    // Networking
+    val retrofitVersion = "2.9.0"
+    implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
+    implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.10.0")
+
+    // Room
+    val roomVersion = "2.4.3"
+    implementation("androidx.room:room-common:$roomVersion")
+    implementation("androidx.room:room-ktx:$roomVersion")
+    kapt("androidx.room:room-compiler:$roomVersion")
 
     // DI
     val hiltVersion = "2.42"

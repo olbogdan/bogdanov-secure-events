@@ -6,8 +6,8 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import ch.protonmail.android.protonmailtest.databinding.ItemTaskBinding
-import ch.protonmail.android.protonmailtest.presentation.tasks.TaskUIEntity
 import ch.protonmail.android.protonmailtest.presentation.extensions.toReadable
+import ch.protonmail.android.protonmailtest.presentation.tasks.TaskUIEntity
 
 class TasksAdapter(private val clickListener: (TaskUIEntity) -> Unit) :
     ListAdapter<TaskUIEntity, TasksAdapter.ViewHolder>(ListAdapterCallBack()) {

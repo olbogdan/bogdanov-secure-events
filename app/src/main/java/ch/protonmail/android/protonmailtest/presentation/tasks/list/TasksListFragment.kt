@@ -13,10 +13,10 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import ch.protonmail.android.protonmailtest.databinding.FragmentTasksListBinding
-import ch.protonmail.android.protonmailtest.presentation.tasks.TaskFilter
-import ch.protonmail.android.protonmailtest.presentation.tasks.TaskUIEntity
 import ch.protonmail.android.protonmailtest.presentation.UIState
 import ch.protonmail.android.protonmailtest.presentation.home.HomeFragmentDirections
+import ch.protonmail.android.protonmailtest.presentation.tasks.TaskFilter
+import ch.protonmail.android.protonmailtest.presentation.tasks.TaskUIEntity
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 

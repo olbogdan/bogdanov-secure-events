@@ -1,4 +1,4 @@
-package ch.protonmail.android.protonmailtest.data.remote
+package ch.protonmail.data.remote
 
 //todo: change to data classes like in UIState
 sealed class NetworkResult<out T> {

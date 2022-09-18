@@ -1,8 +1,5 @@
-package ch.protonmail.android.protonmailtest.di
+package ch.protonmail.di
 
-import ch.protonmail.android.protonmailtest.data.remote.TasksRemoteDataSource
-import ch.protonmail.android.protonmailtest.data.remote.retrofit.resultconverter.NetworkResultCallAdapterFactory
-import ch.protonmail.android.protonmailtest.data.remote.retrofit.TasksApiService
 import com.google.gson.GsonBuilder
 import dagger.Module
 import dagger.Provides
@@ -53,22 +50,25 @@ object ApiModule {
 
     @Singleton
     @Provides
-    fun provideRetrofit(okHttpClient: OkHttpClient, converterFactory: GsonConverterFactory): Retrofit = Retrofit.Builder()
+    fun provideRetrofit(
+        okHttpClient: OkHttpClient,
+        converterFactory: GsonConverterFactory
+    ): Retrofit = Retrofit.Builder()
         .addConverterFactory(converterFactory)
-        .addCallAdapterFactory(NetworkResultCallAdapterFactory.create())
+        .addCallAdapterFactory(ch.protonmail.data.remote.retrofit.resultconverter.NetworkResultCallAdapterFactory.create())
         .baseUrl(BASE_URL)
         .client(okHttpClient)
         .build()
 
     @Singleton
     @Provides
-    fun provideTasksApiService(retrofit: Retrofit): TasksApiService =
-        retrofit.create(TasksApiService::class.java)
+    fun provideTasksApiService(retrofit: Retrofit): ch.protonmail.data.remote.retrofit.TasksApiService =
+        retrofit.create(ch.protonmail.data.remote.retrofit.TasksApiService::class.java)
 
     @Singleton
     @Provides
-    fun providesTasksRemoteDataSource(apiService: TasksApiService) =
-        TasksRemoteDataSource(apiService)
+    fun providesTasksRemoteDataSource(apiService: ch.protonmail.data.remote.retrofit.TasksApiService) =
+        ch.protonmail.data.remote.TasksRemoteDataSource(apiService)
 }
 
 
