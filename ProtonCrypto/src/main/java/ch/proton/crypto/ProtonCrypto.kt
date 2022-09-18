@@ -1,4 +1,4 @@
-package ch.protonmail.android.protonmailtest.crypto
+package ch.proton.crypto
 
 import ch.protonmail.android.crypto.CryptoLib
 

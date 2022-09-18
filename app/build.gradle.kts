@@ -34,6 +34,7 @@ dependencies {
     // Android
     implementation("androidx.fragment:fragment-ktx:1.5.2")
     implementation("com.google.android.material:material:1.6.1")
+    implementation(project(mapOf("path" to ":ProtonCrypto")))
 
     // Navigation
     val navigationVersion = "2.5.2"
@@ -61,7 +62,7 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.5.1")
 
     // Cryptography
-    implementation(files("../libs/crypto.aar"))
+//    implementation(files("../libs/crypto.aar"))
 }
 
 // Allow references to generated code

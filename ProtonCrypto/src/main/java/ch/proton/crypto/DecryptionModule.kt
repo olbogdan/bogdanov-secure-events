@@ -1,8 +1,6 @@
-package ch.protonmail.android.protonmailtest.di
+package ch.proton.crypto
 
 import ch.protonmail.android.crypto.CryptoLib
-import ch.protonmail.android.protonmailtest.crypto.Crypto
-import ch.protonmail.android.protonmailtest.crypto.ProtonCrypto
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

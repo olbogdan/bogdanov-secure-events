@@ -2,7 +2,7 @@ package ch.protonmail.android.protonmailtest.interactors.usecases
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
-import ch.protonmail.android.protonmailtest.crypto.Crypto
+import ch.proton.crypto.Crypto
 import ch.protonmail.android.protonmailtest.data.local.Task
 import ch.protonmail.android.protonmailtest.di.IoDispatcher
 import ch.protonmail.android.protonmailtest.interactors.Resource
