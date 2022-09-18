@@ -20,7 +20,7 @@ dependencies {
     val retrofitVersion = "2.9.0"
     implementation("com.squareup.retrofit2:retrofit:$retrofitVersion")
     implementation("com.squareup.retrofit2:converter-gson:$retrofitVersion")
-    implementation("com.squareup.okhttp3:logging-interceptor:4.10.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.10")
 
     // Room
     val roomVersion = "2.4.3"
@@ -29,7 +29,7 @@ dependencies {
     kapt("androidx.room:room-compiler:$roomVersion")
 
     // DI
-    val hiltVersion = "2.42"
+    val hiltVersion = "2.43.2"
     implementation("com.google.dagger:hilt-android:$hiltVersion")
     kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")
 }

@@ -19,7 +19,7 @@ class GetTasksUseCase @Inject constructor(
     private val tasksMapper: TasksListToUIEntityUseCase
 ) {
 
-    suspend operator fun invoke(filter: Filter): LiveData<Resource<List<TaskEntity>>> {
+    operator fun invoke(filter: Filter): LiveData<Resource<List<TaskEntity>>> {
         return liveData(dispatcher) {
             val resource = when (filter) {
                 is Filter.ALL -> repository.getAllTasks()
