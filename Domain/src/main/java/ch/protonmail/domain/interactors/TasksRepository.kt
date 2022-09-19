@@ -14,7 +14,6 @@ import kotlinx.coroutines.CoroutineDispatcher
 import java.util.*
 import javax.inject.Inject
 
-//todo: move it to separate module for better encapsulation
 /**
  * Repository works as mediator between Remote and Local data sources.
  * Local datasource consider to be a singe source of true, LiveData notified with dynamic changes.

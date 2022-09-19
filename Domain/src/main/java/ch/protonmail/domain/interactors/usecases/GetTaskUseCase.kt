@@ -10,7 +10,6 @@ import ch.protonmail.domain.interactors.TasksRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import javax.inject.Inject
 
-
 class GetTaskUseCase @Inject constructor(
     @IoDispatcher private val dispatcher: CoroutineDispatcher,
     private val repository: TasksRepository,

@@ -1,6 +1,5 @@
 package ch.protonmail.data.remote
 
-//todo: change to data classes like in UIState
 sealed class NetworkResult<out T> {
     data class Success<T : Any>(val data: T) : NetworkResult<T>()
     data class Error<T : Any>(val code: Int, val message: String?) : NetworkResult<T>()

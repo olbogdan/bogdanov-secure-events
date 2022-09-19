@@ -15,8 +15,7 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object ApiModule {
-    private const val BASE_URL = "https://632238cc362b0d4e7dcabbc7.mockapi.io/protontesttask/"
-//    "https://proton-android-testcloud.europe-west1.firebasedatabase.app"
+    private const val BASE_URL = "https://proton-android-testcloud.europe-west1.firebasedatabase.app"
 
     @Singleton
     @Provides
@@ -33,9 +32,7 @@ object ApiModule {
             .callTimeout(
                 2,
                 TimeUnit.MINUTES
-            ) //todo: remove timeouts, added because my connection unstable
-            .connectTimeout(20, TimeUnit.SECONDS)
-            .readTimeout(20, TimeUnit.SECONDS)
+            )
             .addInterceptor(httpLoggingInterceptor)
             .build()
 

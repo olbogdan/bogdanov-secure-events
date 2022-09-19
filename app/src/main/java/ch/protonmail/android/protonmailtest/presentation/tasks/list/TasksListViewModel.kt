@@ -20,11 +20,16 @@ class TasksListViewModel
 ) : ViewModel() {
 
     val uiState: LiveData<UIState<List<TaskEntity>>> = liveData(dispatcher) {
+        emit(UIState.Loading)
         emitSource(
             useCase(filter.mapToFilter()).map { resource ->
                 when (resource) {
                     is Resource.Loading -> UIState.Loading
-                    is Resource.Success -> UIState.Success(resource.data)
+                    is Resource.Success -> if (resource.data.isEmpty()) {
+                        UIState.Loading
+                    } else {
+                        UIState.Success(resource.data)
+                    }
                     is Resource.Failure -> UIState.Failure(resource.errorMessage)
                 }
             }
