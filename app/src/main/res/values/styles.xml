@@ -5,9 +5,7 @@
         <item name="colorPrimaryVariant">@color/color_primary_dark</item>
         <item name="tabStyle">@style/BogdanovTabLayout</item>
         <item name="android:windowBackground">@color/color_background</item>
-        <item name="android:windowLightStatusBar">true</item>
         <item name="android:navigationBarColor">@color/color_primary</item>
-        <item name="android:windowLightNavigationBar" tools:ignore="NewApi">true</item>
     </style>
 
     <style name="BogdanovTabLayout" parent="Widget.Material3.TabLayout">
