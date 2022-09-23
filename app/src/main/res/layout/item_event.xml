@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@android:style/Widget.Material.Button.Borderless"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingHorizontal="@dimen/material_design_margin_16"
+    android:paddingVertical="@dimen/material_design_margin_12">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/item_event_image"
+        android:layout_width="84dp"
+        android:layout_height="84dp"
+        android:background="@color/color_item_item_image_placeholder"
+        android:importantForAccessibility="no"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/Bogdanov.RoundedImageView" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/item_event_text_title"
+        style="@style/Bogdanov.TextAppearance.Body.Medium1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/material_design_margin_12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/item_event_image"
+        app:layout_constraintTop_toTopOf="parent"
+        app:lineHeight="@dimen/text_line_height_title"
+        tools:text="Decrypted title" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/item_event_text_description"
+        style="@style/Bogdanov.TextAppearance.Body.Regular2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/material_design_margin_12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/item_event_image"
+        app:layout_constraintTop_toBottomOf="@id/item_event_text_title"
+        app:lineHeight="@dimen/text_line_height_regular"
+        tools:text="Decrypted description" />
+
+    <include
+        android:id="@+id/item_event_details_container"
+        layout="@layout/view_event_details"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/material_design_margin_12"
+        android:layout_marginTop="@dimen/material_design_margin_8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/item_event_image"
+        app:layout_constraintTop_toBottomOf="@id/item_event_text_description" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

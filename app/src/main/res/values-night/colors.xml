@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="color_primary">@color/color_proton_black</color>
-    <color name="color_primary_dark">@color/color_proton_black</color>
-    <color name="color_accent">@color/color_proton_grey_light</color>
-    <color name="color_text_primary">@color/color_proton_white</color>
-    <color name="color_text_secondary">@color/color_proton_grey_light</color>
+    <color name="color_primary">#000000</color>
+    <color name="color_background">#000000</color>
+
+    <color name="color_text_primary">#FFFFFF</color>
+    <color name="color_text_secondary">#FFFFFF</color>
+    <color name="color_text_primary_inverse">#FFFFFF</color>
 </resources>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center_vertical"
+            android:importantForAccessibility="no"
+            app:srcCompat="@android:drawable/star_big_off" />
+
+        <com.google.android.material.textview.MaterialTextView
+            style="@style/Bogdanov.TextAppearance.Body.Medium2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/material_design_margin_8"
+            android:text="@string/item_event_from"
+            app:lineHeight="@dimen/text_line_height_regular" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/event_details_text_creation_date"
+            style="@style/Bogdanov.TextAppearance.Body.Regular2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/material_design_margin_8"
+            app:lineHeight="@dimen/text_line_height_regular"
+            tools:text="2020-12-17 • 12:00" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/material_design_margin_8">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center_vertical"
+            android:importantForAccessibility="no"
+            app:srcCompat="@android:drawable/ic_dialog_alert" />
+
+        <com.google.android.material.textview.MaterialTextView
+            style="@style/Bogdanov.TextAppearance.Body.Medium2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/material_design_margin_8"
+            android:text="@string/item_event_to"
+            app:lineHeight="@dimen/text_line_height_regular" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/event_details_text_due_date"
+            style="@style/Bogdanov.TextAppearance.Body.Regular2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="@dimen/material_design_margin_8"
+            app:lineHeight="@dimen/text_line_height_regular"
+            tools:text="2020-12-17 • 22:00" />
+    </TableRow>
+</TableLayout>

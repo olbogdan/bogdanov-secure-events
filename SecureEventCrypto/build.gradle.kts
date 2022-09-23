@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "ch.proton.crypto"
+    namespace = "com.bogdanov.android.cryptoevent.crypto"
     compileSdk = 33
 
     defaultConfig {

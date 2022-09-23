@@ -1,10 +1,10 @@
 <resources>
-    <string name="app_name">Proton Test</string>
-    <string name="home_tab_all_tasks_title">All tasks (%d)</string>
-    <string name="home_tab_upcoming_tasks_title">Upcoming tasks (%d)</string>
-    <string name="item_task_created">Created:</string>
-    <string name="item_task_due">Due:</string>
-    <string name="item_task_title">%s %s</string>
-    <string name="task_details_toolbar_title">Task %s</string>
-    <string name="task_details_download_button">Download image</string>
+    <string name="app_name">Events</string>
+    <string name="home_tab_all_events_title">All events (%d)</string>
+    <string name="home_tab_upcoming_events_title">Upcoming events (%d)</string>
+    <string name="item_event_from">From:</string>
+    <string name="item_event_to">To:</string>
+    <string name="item_event_title">%s %s</string>
+    <string name="event_details_toolbar_title">Event %s</string>
+    <string name="event_details_download_button">Download preview</string>
 </resources>

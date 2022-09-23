@@ -8,9 +8,9 @@ plugins {
 
 android {
     compileSdk = 33
-    namespace = "ch.protonmail.android.protonmailtest"
+    namespace = "com.bogdanov.android.cryptoevent"
     defaultConfig {
-        applicationId = "ch.protonmail.android.protonmailtest"
+        applicationId = "com.bogdanov.android.cryptoevent"
         minSdk = 23
         targetSdk = 33
         versionCode = 1

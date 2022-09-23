@@ -8,6 +8,8 @@
     android:background="@color/color_primary"
     app:layout_scrollFlags="scroll|enterAlways|snap"
     app:navigationIcon="@drawable/ic_back_arrow"
-    app:titleTextAppearance="@style/Proton.TextAppearance.Body.Medium1"
+    app:navigationIconTint="@android:color/white"
+    app:titleTextAppearance="@style/Bogdanov.TextAppearance.Body.Medium1"
+    app:titleTextColor="@android:color/white"
     tools:title="Title" />
 

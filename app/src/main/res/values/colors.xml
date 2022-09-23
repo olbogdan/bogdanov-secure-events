@@ -1,15 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="color_primary">@color/color_proton_white</color>
-    <color name="color_primary_dark">@color/color_proton_white</color>
-    <color name="color_accent">@color/color_proton_black</color>
+    <color name="color_primary">#1E88E5</color>
+    <color name="color_primary_dark">#0D47A1</color>
+    <color name="color_accent">#03DAC6</color>
+    <color name="color_background">#FFFFFF</color>
+    <color name="color_item_item_image_placeholder">#F3F3F3</color>
 
-    <color name="color_proton_purple">#6D4AFF</color>
-    <color name="color_proton_white">#FFFFFF</color>
-    <color name="color_proton_grey_light">#EAE7E4</color>
-    <color name="color_proton_black">#0C0C14</color>
-
-    <color name="color_item_task_image_placeholder">#F3F3F3</color>
-    <color name="color_text_primary">@color/color_proton_black</color>
-    <color name="color_text_secondary">#727680</color>
+    <color name="color_text_primary">#000000</color>
+    <color name="color_text_secondary">#C2C4C6</color>
+    <color name="color_text_primary_inverse">#FFFFFF</color>
 </resources>

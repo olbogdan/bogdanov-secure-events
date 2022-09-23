@@ -3,65 +3,65 @@
     <style name="AppTheme" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="colorPrimary">@color/color_primary</item>
         <item name="colorPrimaryVariant">@color/color_primary_dark</item>
-        <item name="tabStyle">@style/ProtonTabLayout</item>
-        <item name="android:windowBackground">@color/color_primary</item>
+        <item name="tabStyle">@style/BogdanovTabLayout</item>
+        <item name="android:windowBackground">@color/color_background</item>
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:navigationBarColor">@color/color_primary</item>
         <item name="android:windowLightNavigationBar" tools:ignore="NewApi">true</item>
     </style>
 
-    <style name="ProtonTabLayout" parent="Widget.Material3.TabLayout">
-        <item name="tabSelectedTextColor">@color/color_text_primary</item>
+    <style name="BogdanovTabLayout" parent="Widget.Material3.TabLayout">
+        <item name="tabSelectedTextColor">@color/color_text_primary_inverse</item>
         <item name="tabTextColor">@color/color_text_secondary</item>
-        <item name="tabIndicatorColor">@color/color_accent</item>
+        <item name="tabIndicatorColor">@color/color_text_primary_inverse</item>
         <item name="tabIndicatorFullWidth">true</item>
         <item name="tabBackground">@color/color_primary</item>
     </style>
 
     <!-- note: lineHeight is supported from API 28, as a workaround is used MaterialTextView that brings backwards compatibility API<21 -->
-    <style name="Proton.TextAppearance" parent="TextAppearance.AppCompat">
+    <style name="Bogdanov.TextAppearance" parent="TextAppearance.AppCompat">
         <item name="android:textColor">@color/color_text_primary</item>
         <item name="android:fontFamily">sans-serif</item>
     </style>
 
-    <style name="Proton.TextAppearance.Headline">
+    <style name="Bogdanov.TextAppearance.Headline">
         <item name="android:textSize">20sp</item>
         <item name="android:letterSpacing">0.01</item>
         <item name="android:textStyle">bold</item>
         <item name="android:lineSpacingExtra">1sp</item>
     </style>
 
-    <style name="Proton.TextAppearance.Body" />
+    <style name="Bogdanov.TextAppearance.Body" />
 
-    <style name="Proton.TextAppearance.Body.Medium1">
+    <style name="Bogdanov.TextAppearance.Body.Medium1">
         <item name="android:textSize">16sp</item>
         <item name="android:letterSpacing">0.03</item>
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:lineSpacingExtra">5sp</item>
     </style>
 
-    <style name="Proton.TextAppearance.Body.Medium2">
+    <style name="Bogdanov.TextAppearance.Body.Medium2">
         <item name="android:textSize">14sp</item>
         <item name="android:letterSpacing">0.02</item>
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:lineSpacingExtra">4sp</item>
     </style>
 
-    <style name="Proton.TextAppearance.Body.Regular1">
+    <style name="Bogdanov.TextAppearance.Body.Regular1">
         <item name="android:textSize">16sp</item>
         <item name="android:letterSpacing">0.03</item>
         <item name="android:textStyle">normal</item>
         <item name="android:lineSpacingExtra">5sp</item>
     </style>
 
-    <style name="Proton.TextAppearance.Body.Regular2">
+    <style name="Bogdanov.TextAppearance.Body.Regular2">
         <item name="android:textSize">14sp</item>
         <item name="android:letterSpacing">0.02</item>
         <item name="android:textStyle">normal</item>
         <item name="android:lineSpacingExtra">4sp</item>
     </style>
 
-    <style name="Proton.RoundedImageView" parent="">
+    <style name="Bogdanov.RoundedImageView" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">8dp</item>
     </style>

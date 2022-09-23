@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace = "ch.protonmail.domain"
+    namespace = "com.bogdanov.android.cryptoevent.domain"
     compileSdk = 33
 
     defaultConfig {
