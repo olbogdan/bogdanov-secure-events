@@ -1,6 +1,5 @@
 package ch.proton.crypto
 
-import ch.protonmail.android.crypto.CryptoLib
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -13,7 +12,7 @@ class DecryptionModule {
 
     @Singleton
     @Provides
-    fun provideCryptoLib(): Crypto = ProtonCrypto(CryptoLib())
+    fun provideCryptoLib(): Crypto = SecureEventCrypto()
 }
 
 

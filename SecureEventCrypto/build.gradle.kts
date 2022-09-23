@@ -15,8 +15,6 @@ android {
 }
 
 dependencies {
-    implementation(files("libs/crypto.jar"))
-
     // DI
     val hiltVersion = "2.43.2"
     implementation("com.google.dagger:hilt-android:$hiltVersion")

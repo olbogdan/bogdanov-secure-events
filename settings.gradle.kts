@@ -6,6 +6,6 @@ dependencyResolutionManagement {
 }
 
 include(":app")
-include(":ProtonCrypto")
+include(":SecureEventCrypto")
 include(":Data")
 include(":Domain")

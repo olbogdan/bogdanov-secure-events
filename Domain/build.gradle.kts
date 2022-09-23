@@ -17,7 +17,7 @@ android {
 }
 
 dependencies {
-    implementation(project(mapOf("path" to ":ProtonCrypto")))
+    implementation(project(mapOf("path" to ":SecureEventCrypto")))
     implementation(project(mapOf("path" to ":Data")))
 
     // DI
