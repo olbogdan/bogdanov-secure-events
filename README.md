@@ -2,7 +2,7 @@
 
 Rest api based app with DB as single source of true.
 
-H2 Tech:
+Tech:
 - LiveData
 - Room
 - Hilt
