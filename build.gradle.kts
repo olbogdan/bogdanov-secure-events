@@ -1,18 +1,11 @@
-buildscript {
-    val kotlinVersion = "1.7.10"
-    extra["kotlin_version"] = kotlinVersion
-
-    repositories {
-        google()
-        mavenCentral()
-    }
-    dependencies {
-        classpath("com.android.tools.build:gradle:7.3.0-rc01")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
-        classpath("org.jetbrains.kotlin:kotlin-serialization:$kotlinVersion")
-        classpath("com.google.dagger:hilt-android-gradle-plugin:2.42")
-        classpath("androidx.navigation:navigation-safe-args-gradle-plugin:2.5.2")
-    }
+//Suppress until fixed: https://youtrack.jetbrains.com/issue/KTIJ-19369/False-positive-cant-be-called-in-this-context-by-implicit-receiver-with-plugins-in-Gradle-version-catalogs-as-a-TOML-file
+@Suppress("DSL_SCOPE_VIOLATION")
+plugins {
+    alias(libs.plugins.plugin.hilt) apply false
+    alias(libs.plugins.plugin.kotlin) apply false
+    alias(libs.plugins.plugin.navigation) apply false
+    alias(libs.plugins.plugin.android.application) apply false
+    alias(libs.plugins.plugin.android.library) apply false
 }
 
 tasks.register("clean", Delete::class) {

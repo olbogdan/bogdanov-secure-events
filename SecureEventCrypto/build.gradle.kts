@@ -15,8 +15,6 @@ android {
 }
 
 dependencies {
-    // DI
-    val hiltVersion = "2.43.2"
-    implementation("com.google.dagger:hilt-android:$hiltVersion")
-    kapt("com.google.dagger:hilt-android-compiler:$hiltVersion")
+    implementation(libs.hilt.core)
+    kapt(libs.hilt.compiler)
 }
